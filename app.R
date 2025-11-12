@@ -216,7 +216,7 @@ server <- function(input, output, session) {
       if (input$variable == "cath_prot_balance_pct") {
         # Diverging palette centered at 50
         colorNumeric(
-          palette = c("#FFB6C1", "#F0E68C", "#48D1CC"),
+          palette = c("#00008B", "#F0E68C", "#006400"),
           domain = values,
           na.color = "transparent"
         )
