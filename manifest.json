@@ -174,53 +174,6 @@
         "Archs": "Rcpp.so.dSYM"
       }
     },
-    "XML": {
-      "Source": "CRAN",
-      "Repository": "https://cran.rstudio.com",
-      "description": {
-        "Package": "XML",
-        "Version": "3.99-0.18",
-        "Authors@R": "c(person(\"CRAN Team\", role = c('ctb', 'cre'),\n                    email = \"CRAN@r-project.org\",\n                    comment = \"de facto maintainer since 2013\"),\n             person(\"Duncan\", \"Temple Lang\", role = c(\"aut\"),\n                    email = \"duncan@r-project.org\",\n                    comment = c(ORCID = \"0000-0003-0159-1546\")),\n\t    person(\"Tomas\", \"Kalibera\", role = \"ctb\"))",
-        "Title": "Tools for Parsing and Generating XML Within R and S-Plus",
-        "Depends": "R (>= 4.0.0), methods, utils",
-        "Suggests": "bitops, RCurl",
-        "SystemRequirements": "libxml2 (>= 2.6.3)",
-        "Description": "Many approaches for both reading and\n        creating XML (and HTML) documents (including DTDs), both local\n        and accessible via HTTP or FTP.  Also offers access to an\n        'XPath' \"interpreter\".",
-        "URL": "https://www.omegahat.net/RSXML/",
-        "License": "BSD_3_clause + file LICENSE",
-        "Collate": "AAA.R DTD.R DTDClasses.R DTDRef.R SAXMethods.R XMLClasses.R\napplyDOM.R assignChild.R catalog.R createNode.R dynSupports.R\nerror.R flatTree.R nodeAccessors.R parseDTD.R schema.R\nsummary.R tangle.R toString.R tree.R version.R xmlErrorEnums.R\nxmlEventHandler.R xmlEventParse.R xmlHandler.R\nxmlInternalSource.R xmlOutputDOM.R xmlNodes.R xmlOutputBuffer.R\nxmlTree.R xmlTreeParse.R htmlParse.R hashTree.R zzz.R\nsupports.R parser.R libxmlFeatures.R xmlString.R saveXML.R\nnamespaces.R readHTMLTable.R reflection.R xmlToDataFrame.R\nbitList.R compare.R encoding.R fixNS.R xmlRoot.R serialize.R\nxmlMemoryMgmt.R keyValueDB.R solrDocs.R XMLRErrorInfo.R\nxincludes.R namespaceHandlers.R tangle1.R htmlLinks.R\nhtmlLists.R getDependencies.R getRelativeURL.R xmlIncludes.R\nsimplifyPath.R",
-        "NeedsCompilation": "yes",
-        "Packaged": "2025-01-01 22:13:11 UTC; ripley",
-        "Author": "CRAN Team [ctb, cre] (de facto maintainer since 2013),\n  Duncan Temple Lang [aut] (<https://orcid.org/0000-0003-0159-1546>),\n  Tomas Kalibera [ctb]",
-        "Maintainer": "CRAN Team <CRAN@r-project.org>",
-        "Repository": "CRAN",
-        "Date/Publication": "2025-01-01 22:15:47 UTC",
-        "Built": "R 4.4.1; aarch64-apple-darwin20; 2025-02-01 04:51:06 UTC; unix",
-        "Archs": "XML.so.dSYM"
-      }
-    },
-    "abind": {
-      "Source": "CRAN",
-      "Repository": "https://cran.rstudio.com",
-      "description": {
-        "Package": "abind",
-        "Version": "1.4-8",
-        "Date": "2024-09-08",
-        "Title": "Combine Multidimensional Arrays",
-        "Authors@R": "c(person(\"Tony\", \"Plate\", email = \"tplate@acm.org\", role = c(\"aut\", \"cre\")), person(\"Richard\", \"Heiberger\", role = c(\"aut\")))",
-        "Maintainer": "Tony Plate <tplate@acm.org>",
-        "Description": "Combine multidimensional arrays into a single array.\n  This is a generalization of 'cbind' and 'rbind'.  Works with\n  vectors, matrices, and higher-dimensional arrays (aka tensors).\n  Also provides functions 'adrop', 'asub', and 'afill' for\n  manipulating, extracting and replacing data in arrays.",
-        "Depends": "R (>= 1.5.0)",
-        "Imports": "methods, utils",
-        "License": "MIT + file LICENSE",
-        "NeedsCompilation": "no",
-        "Packaged": "2024-09-11 21:58:20 UTC; tap",
-        "Author": "Tony Plate [aut, cre],\n  Richard Heiberger [aut]",
-        "Repository": "CRAN",
-        "Date/Publication": "2024-09-12 17:40:54 UTC",
-        "Built": "R 4.4.1; ; 2024-09-12 18:05:25 UTC; unix"
-      }
-    },
     "base64enc": {
       "Source": "CRAN",
       "Repository": "https://cran.rstudio.com",
@@ -388,65 +341,6 @@
         "Archs": "cli.so.dSYM"
       }
     },
-    "colorspace": {
-      "Source": "CRAN",
-      "Repository": "https://cran.rstudio.com",
-      "description": {
-        "Package": "colorspace",
-        "Version": "2.1-1",
-        "Date": "2024-07-26",
-        "Title": "A Toolbox for Manipulating and Assessing Colors and Palettes",
-        "Authors@R": "c(person(given = \"Ross\", family = \"Ihaka\", role = \"aut\", email = \"ihaka@stat.auckland.ac.nz\"),\n             person(given = \"Paul\", family = \"Murrell\", role = \"aut\", email = \"paul@stat.auckland.ac.nz\",\n                    comment = c(ORCID = \"0000-0002-3224-8858\")),\n             person(given = \"Kurt\", family = \"Hornik\", role = \"aut\", email = \"Kurt.Hornik@R-project.org\",\n\t\t    comment = c(ORCID = \"0000-0003-4198-9911\")),\n             person(given = c(\"Jason\", \"C.\"), family = \"Fisher\", role = \"aut\", email = \"jfisher@usgs.gov\",\n                    comment = c(ORCID = \"0000-0001-9032-8912\")),\n             person(given = \"Reto\", family = \"Stauffer\", role = \"aut\", email = \"Reto.Stauffer@uibk.ac.at\",\n                    comment = c(ORCID = \"0000-0002-3798-5507\")),\n             person(given = c(\"Claus\", \"O.\"), family = \"Wilke\", role = \"aut\", email = \"wilke@austin.utexas.edu\",\n                    comment = c(ORCID = \"0000-0002-7470-9261\")),\n             person(given = c(\"Claire\", \"D.\"), family = \"McWhite\", role = \"aut\", email = \"claire.mcwhite@utmail.utexas.edu\",\n                    comment = c(ORCID = \"0000-0001-7346-3047\")),\n             person(given = \"Achim\", family = \"Zeileis\", role = c(\"aut\", \"cre\"), email = \"Achim.Zeileis@R-project.org\",\n                    comment = c(ORCID = \"0000-0003-0918-3766\")))",
-        "Description": "Carries out mapping between assorted color spaces including RGB, HSV, HLS,\n             CIEXYZ, CIELUV, HCL (polar CIELUV), CIELAB, and polar CIELAB.\n\t     Qualitative, sequential, and diverging color palettes based on HCL colors\n\t     are provided along with corresponding ggplot2 color scales.\n\t     Color palette choice is aided by an interactive app (with either a Tcl/Tk\n\t     or a shiny graphical user interface) and shiny apps with an HCL color picker and a\n\t     color vision deficiency emulator. Plotting functions for displaying\n\t     and assessing palettes include color swatches, visualizations of the\n\t     HCL space, and trajectories in HCL and/or RGB spectrum. Color manipulation\n\t     functions include: desaturation, lightening/darkening, mixing, and\n\t     simulation of color vision deficiencies (deutanomaly, protanomaly, tritanomaly).\n\t     Details can be found on the project web page at <https://colorspace.R-Forge.R-project.org/>\n\t     and in the accompanying scientific paper: Zeileis et al. (2020, Journal of Statistical\n\t     Software, <doi:10.18637/jss.v096.i01>).",
-        "Depends": "R (>= 3.0.0), methods",
-        "Imports": "graphics, grDevices, stats",
-        "Suggests": "datasets, utils, KernSmooth, MASS, kernlab, mvtnorm, vcd,\ntcltk, shiny, shinyjs, ggplot2, dplyr, scales, grid, png, jpeg,\nknitr, rmarkdown, RColorBrewer, rcartocolor, scico, viridis,\nwesanderson",
-        "VignetteBuilder": "knitr",
-        "License": "BSD_3_clause + file LICENSE",
-        "URL": "https://colorspace.R-Forge.R-project.org/, https://hclwizard.org/",
-        "BugReports": "https://colorspace.R-Forge.R-project.org/contact.html",
-        "LazyData": "yes",
-        "Encoding": "UTF-8",
-        "RoxygenNote": "7.3.1",
-        "NeedsCompilation": "yes",
-        "Packaged": "2024-07-26 15:40:41 UTC; zeileis",
-        "Author": "Ross Ihaka [aut],\n  Paul Murrell [aut] (<https://orcid.org/0000-0002-3224-8858>),\n  Kurt Hornik [aut] (<https://orcid.org/0000-0003-4198-9911>),\n  Jason C. Fisher [aut] (<https://orcid.org/0000-0001-9032-8912>),\n  Reto Stauffer [aut] (<https://orcid.org/0000-0002-3798-5507>),\n  Claus O. Wilke [aut] (<https://orcid.org/0000-0002-7470-9261>),\n  Claire D. McWhite [aut] (<https://orcid.org/0000-0001-7346-3047>),\n  Achim Zeileis [aut, cre] (<https://orcid.org/0000-0003-0918-3766>)",
-        "Maintainer": "Achim Zeileis <Achim.Zeileis@R-project.org>",
-        "Repository": "CRAN",
-        "Date/Publication": "2024-07-26 17:10:02 UTC",
-        "Built": "R 4.4.0; aarch64-apple-darwin20; 2024-07-26 20:13:47 UTC; unix",
-        "Archs": "colorspace.so.dSYM"
-      }
-    },
-    "cols4all": {
-      "Source": "CRAN",
-      "Repository": "https://cran.rstudio.com",
-      "description": {
-        "Package": "cols4all",
-        "License": "GPL-3",
-        "Title": "Colors for all",
-        "Type": "Package",
-        "LazyLoad": "yes",
-        "Authors@R": "c(\n\tperson(\"Martijn\", \"Tennekes\", email = \"mtennekes@gmail.com\", role = c(\"aut\", \"cre\")),\n\tperson(\"Marco\", \"Puts\", email = \"mputs@acm.org\", role = \"ctb\"),\n\tperson(\"Achim\", \"Zeileis\", email = \"Achim.Zeileis@R-project.org\", role = \"ctb\"),\n\tperson(\"Jakub\", \"Nowosad\", email = \"nowosad.jakub@gmail.com\", role = \"ctb\"),\n\tperson(\"Robin\", \"Lovelace\", email = \"rob00x@gmail.com\", role = \"ctb\"),\n\tperson(\"Helgasoft\", email = \"contact@helgasoft.com\", role = \"ctb\"),\n\tperson(\"Matthew\", \"Petroff\", email = \"matthew@mpetroff.net\", role = \"ctb\"),\n    person(\"Olivier\", \"Roy\", role = \"ctb\")\n\t)",
-        "Description": "Color palettes for all people, including those with color vision deficiency. Popular color palette series have been organized by type and have been scored on several properties such as color-blind-friendliness and fairness (i.e. do colors stand out equally?). Own palettes can also be loaded and analysed. Besides the common palette types (categorical, sequential, and diverging) it also includes cyclic and bivariate color palettes. Furthermore, a color for missing values is assigned to each palette.",
-        "Version": "0.8",
-        "Date": "2024-10-16",
-        "Encoding": "UTF-8",
-        "Depends": "R (>= 3.5.0),",
-        "Imports": "methods, grDevices, stats, abind, png, stringdist, colorspace\n(>= 2.1), spacesXYZ",
-        "Suggests": "colorblindcheck, kableExtra, knitr, shiny, shinyjs, ggplot2,\nscales, rmarkdown, bookdown, bibtex, plotly",
-        "URL": "https://mtennekes.github.io/cols4all/,\nhttps://github.com/mtennekes/cols4all",
-        "BugReports": "https://github.com/mtennekes/cols4all/issues",
-        "RoxygenNote": "7.3.2",
-        "NeedsCompilation": "no",
-        "Packaged": "2024-10-16 20:51:33 UTC; mtes",
-        "Author": "Martijn Tennekes [aut, cre],\n  Marco Puts [ctb],\n  Achim Zeileis [ctb],\n  Jakub Nowosad [ctb],\n  Robin Lovelace [ctb],\n  Helgasoft [ctb],\n  Matthew Petroff [ctb],\n  Olivier Roy [ctb]",
-        "Maintainer": "Martijn Tennekes <mtennekes@gmail.com>",
-        "Repository": "CRAN",
-        "Date/Publication": "2024-10-16 22:00:04 UTC",
-        "Built": "R 4.4.1; ; 2024-10-16 22:09:51 UTC; unix"
-      }
-    },
     "commonmark": {
       "Source": "CRAN",
       "Repository": "https://cran.rstudio.com",
@@ -525,56 +419,6 @@
         "Repository": "CRAN",
         "Date/Publication": "2023-11-23 08:50:07 UTC",
         "Built": "R 4.4.0; ; 2024-04-05 22:34:09 UTC; unix"
-      }
-    },
-    "data.table": {
-      "Source": "CRAN",
-      "Repository": "https://cran.rstudio.com",
-      "description": {
-        "Package": "data.table",
-        "Version": "1.17.6",
-        "Title": "Extension of `data.frame`",
-        "Depends": "R (>= 3.3.0)",
-        "Imports": "methods",
-        "Suggests": "bit64 (>= 4.0.0), bit (>= 4.0.4), R.utils, xts, zoo (>=\n1.8-1), yaml, knitr, markdown",
-        "Description": "Fast aggregation of large data (e.g. 100GB in RAM), fast ordered joins, fast add/modify/delete of columns by group using no copies at all, list columns, friendly and fast character-separated-value read/write. Offers a natural and flexible syntax, for faster development.",
-        "License": "MPL-2.0 | file LICENSE",
-        "URL": "https://r-datatable.com, https://Rdatatable.gitlab.io/data.table,\nhttps://github.com/Rdatatable/data.table",
-        "BugReports": "https://github.com/Rdatatable/data.table/issues",
-        "VignetteBuilder": "knitr",
-        "Encoding": "UTF-8",
-        "ByteCompile": "TRUE",
-        "Authors@R": "c(\n  person(\"Tyson\",\"Barrett\",        role=c(\"aut\",\"cre\"), email=\"t.barrett88@gmail.com\", comment = c(ORCID=\"0000-0002-2137-1391\")),\n  person(\"Matt\",\"Dowle\",           role=\"aut\",          email=\"mattjdowle@gmail.com\"),\n  person(\"Arun\",\"Srinivasan\",      role=\"aut\",          email=\"asrini@pm.me\"),\n  person(\"Jan\",\"Gorecki\",          role=\"aut\"),\n  person(\"Michael\",\"Chirico\",      role=\"aut\", comment = c(ORCID=\"0000-0003-0787-087X\")),\n  person(\"Toby\",\"Hocking\",         role=\"aut\", comment = c(ORCID=\"0000-0002-3146-0865\")),\n  person(\"Benjamin\",\"Schwendinger\",role=\"aut\", comment = c(ORCID=\"0000-0003-3315-8114\")),\n  person(\"Ivan\", \"Krylov\",         role=\"aut\",          email=\"ikrylov@disroot.org\",   comment = c(ORCID=\"0000-0002-0172-3812\")),\n  person(\"Pasha\",\"Stetsenko\",      role=\"ctb\"),\n  person(\"Tom\",\"Short\",            role=\"ctb\"),\n  person(\"Steve\",\"Lianoglou\",      role=\"ctb\"),\n  person(\"Eduard\",\"Antonyan\",      role=\"ctb\"),\n  person(\"Markus\",\"Bonsch\",        role=\"ctb\"),\n  person(\"Hugh\",\"Parsonage\",       role=\"ctb\"),\n  person(\"Scott\",\"Ritchie\",        role=\"ctb\"),\n  person(\"Kun\",\"Ren\",              role=\"ctb\"),\n  person(\"Xianying\",\"Tan\",         role=\"ctb\"),\n  person(\"Rick\",\"Saporta\",         role=\"ctb\"),\n  person(\"Otto\",\"Seiskari\",        role=\"ctb\"),\n  person(\"Xianghui\",\"Dong\",        role=\"ctb\"),\n  person(\"Michel\",\"Lang\",          role=\"ctb\"),\n  person(\"Watal\",\"Iwasaki\",        role=\"ctb\"),\n  person(\"Seth\",\"Wenchel\",         role=\"ctb\"),\n  person(\"Karl\",\"Broman\",          role=\"ctb\"),\n  person(\"Tobias\",\"Schmidt\",       role=\"ctb\"),\n  person(\"David\",\"Arenburg\",       role=\"ctb\"),\n  person(\"Ethan\",\"Smith\",          role=\"ctb\"),\n  person(\"Francois\",\"Cocquemas\",   role=\"ctb\"),\n  person(\"Matthieu\",\"Gomez\",       role=\"ctb\"),\n  person(\"Philippe\",\"Chataignon\",  role=\"ctb\"),\n  person(\"Nello\",\"Blaser\",         role=\"ctb\"),\n  person(\"Dmitry\",\"Selivanov\",     role=\"ctb\"),\n  person(\"Andrey\",\"Riabushenko\",   role=\"ctb\"),\n  person(\"Cheng\",\"Lee\",            role=\"ctb\"),\n  person(\"Declan\",\"Groves\",        role=\"ctb\"),\n  person(\"Daniel\",\"Possenriede\",   role=\"ctb\"),\n  person(\"Felipe\",\"Parages\",       role=\"ctb\"),\n  person(\"Denes\",\"Toth\",           role=\"ctb\"),\n  person(\"Mus\",\"Yaramaz-David\",    role=\"ctb\"),\n  person(\"Ayappan\",\"Perumal\",      role=\"ctb\"),\n  person(\"James\",\"Sams\",           role=\"ctb\"),\n  person(\"Martin\",\"Morgan\",        role=\"ctb\"),\n  person(\"Michael\",\"Quinn\",        role=\"ctb\"),\n  person(\"@javrucebo\",\"\",          role=\"ctb\"),\n  person(\"@marc-outins\",\"\",        role=\"ctb\"),\n  person(\"Roy\",\"Storey\",           role=\"ctb\"),\n  person(\"Manish\",\"Saraswat\",      role=\"ctb\"),\n  person(\"Morgan\",\"Jacob\",         role=\"ctb\"),\n  person(\"Michael\",\"Schubmehl\",    role=\"ctb\"),\n  person(\"Davis\",\"Vaughan\",        role=\"ctb\"),\n  person(\"Leonardo\",\"Silvestri\",   role=\"ctb\"),\n  person(\"Jim\",\"Hester\",           role=\"ctb\"),\n  person(\"Anthony\",\"Damico\",       role=\"ctb\"),\n  person(\"Sebastian\",\"Freundt\",    role=\"ctb\"),\n  person(\"David\",\"Simons\",         role=\"ctb\"),\n  person(\"Elliott\",\"Sales de Andrade\", role=\"ctb\"),\n  person(\"Cole\",\"Miller\",          role=\"ctb\"),\n  person(\"Jens Peder\",\"Meldgaard\", role=\"ctb\"),\n  person(\"Vaclav\",\"Tlapak\",        role=\"ctb\"),\n  person(\"Kevin\",\"Ushey\",          role=\"ctb\"),\n  person(\"Dirk\",\"Eddelbuettel\",    role=\"ctb\"),\n  person(\"Tony\",\"Fischetti\",       role=\"ctb\"),\n  person(\"Ofek\",\"Shilon\",          role=\"ctb\"),\n  person(\"Vadim\",\"Khotilovich\",    role=\"ctb\"),\n  person(\"Hadley\",\"Wickham\",       role=\"ctb\"),\n  person(\"Bennet\",\"Becker\",        role=\"ctb\"),\n  person(\"Kyle\",\"Haynes\",          role=\"ctb\"),\n  person(\"Boniface Christian\",\"Kamgang\", role=\"ctb\"),\n  person(\"Olivier\",\"Delmarcell\",   role=\"ctb\"),\n  person(\"Josh\",\"O'Brien\",         role=\"ctb\"),\n  person(\"Dereck\",\"de Mezquita\",   role=\"ctb\"),\n  person(\"Michael\",\"Czekanski\",    role=\"ctb\"),\n  person(\"Dmitry\", \"Shemetov\",     role=\"ctb\"),\n  person(\"Nitish\", \"Jha\",          role=\"ctb\"),\n  person(\"Joshua\", \"Wu\",           role=\"ctb\"),\n  person(\"Iago\", \"Giné-Vázquez\",   role=\"ctb\"),\n  person(\"Anirban\", \"Chetia\",      role=\"ctb\"),\n  person(\"Doris\", \"Amoakohene\",    role=\"ctb\"),\n  person(\"Angel\", \"Feliz\",         role=\"ctb\"),\n  person(\"Michael\",\"Young\",        role=\"ctb\"),\n  person(\"Mark\", \"Seeto\",          role=\"ctb\"),\n  person(\"Philippe\", \"Grosjean\",   role=\"ctb\"),\n  person(\"Vincent\", \"Runge\",       role=\"ctb\"),\n  person(\"Christian\", \"Wia\",       role=\"ctb\"),\n  person(\"Elise\", \"Maigné\",        role=\"ctb\"),\n  person(\"Vincent\", \"Rocher\",      role=\"ctb\"),\n  person(\"Vijay\", \"Lulla\",         role=\"ctb\"),\n  person(\"Aljaž\", \"Sluga\",         role=\"ctb\"),\n  person(\"Bill\", \"Evans\",          role=\"ctb\")\n  )",
-        "NeedsCompilation": "yes",
-        "Packaged": "2025-06-15 18:20:39 UTC; tysonbarrett",
-        "Author": "Tyson Barrett [aut, cre] (ORCID:\n    <https://orcid.org/0000-0002-2137-1391>),\n  Matt Dowle [aut],\n  Arun Srinivasan [aut],\n  Jan Gorecki [aut],\n  Michael Chirico [aut] (ORCID: <https://orcid.org/0000-0003-0787-087X>),\n  Toby Hocking [aut] (ORCID: <https://orcid.org/0000-0002-3146-0865>),\n  Benjamin Schwendinger [aut] (ORCID:\n    <https://orcid.org/0000-0003-3315-8114>),\n  Ivan Krylov [aut] (ORCID: <https://orcid.org/0000-0002-0172-3812>),\n  Pasha Stetsenko [ctb],\n  Tom Short [ctb],\n  Steve Lianoglou [ctb],\n  Eduard Antonyan [ctb],\n  Markus Bonsch [ctb],\n  Hugh Parsonage [ctb],\n  Scott Ritchie [ctb],\n  Kun Ren [ctb],\n  Xianying Tan [ctb],\n  Rick Saporta [ctb],\n  Otto Seiskari [ctb],\n  Xianghui Dong [ctb],\n  Michel Lang [ctb],\n  Watal Iwasaki [ctb],\n  Seth Wenchel [ctb],\n  Karl Broman [ctb],\n  Tobias Schmidt [ctb],\n  David Arenburg [ctb],\n  Ethan Smith [ctb],\n  Francois Cocquemas [ctb],\n  Matthieu Gomez [ctb],\n  Philippe Chataignon [ctb],\n  Nello Blaser [ctb],\n  Dmitry Selivanov [ctb],\n  Andrey Riabushenko [ctb],\n  Cheng Lee [ctb],\n  Declan Groves [ctb],\n  Daniel Possenriede [ctb],\n  Felipe Parages [ctb],\n  Denes Toth [ctb],\n  Mus Yaramaz-David [ctb],\n  Ayappan Perumal [ctb],\n  James Sams [ctb],\n  Martin Morgan [ctb],\n  Michael Quinn [ctb],\n  @javrucebo [ctb],\n  @marc-outins [ctb],\n  Roy Storey [ctb],\n  Manish Saraswat [ctb],\n  Morgan Jacob [ctb],\n  Michael Schubmehl [ctb],\n  Davis Vaughan [ctb],\n  Leonardo Silvestri [ctb],\n  Jim Hester [ctb],\n  Anthony Damico [ctb],\n  Sebastian Freundt [ctb],\n  David Simons [ctb],\n  Elliott Sales de Andrade [ctb],\n  Cole Miller [ctb],\n  Jens Peder Meldgaard [ctb],\n  Vaclav Tlapak [ctb],\n  Kevin Ushey [ctb],\n  Dirk Eddelbuettel [ctb],\n  Tony Fischetti [ctb],\n  Ofek Shilon [ctb],\n  Vadim Khotilovich [ctb],\n  Hadley Wickham [ctb],\n  Bennet Becker [ctb],\n  Kyle Haynes [ctb],\n  Boniface Christian Kamgang [ctb],\n  Olivier Delmarcell [ctb],\n  Josh O'Brien [ctb],\n  Dereck de Mezquita [ctb],\n  Michael Czekanski [ctb],\n  Dmitry Shemetov [ctb],\n  Nitish Jha [ctb],\n  Joshua Wu [ctb],\n  Iago Giné-Vázquez [ctb],\n  Anirban Chetia [ctb],\n  Doris Amoakohene [ctb],\n  Angel Feliz [ctb],\n  Michael Young [ctb],\n  Mark Seeto [ctb],\n  Philippe Grosjean [ctb],\n  Vincent Runge [ctb],\n  Christian Wia [ctb],\n  Elise Maigné [ctb],\n  Vincent Rocher [ctb],\n  Vijay Lulla [ctb],\n  Aljaž Sluga [ctb],\n  Bill Evans [ctb]",
-        "Maintainer": "Tyson Barrett <t.barrett88@gmail.com>",
-        "Repository": "CRAN",
-        "Date/Publication": "2025-06-17 03:40:02 UTC",
-        "Built": "R 4.4.1; aarch64-apple-darwin20; 2025-06-17 05:22:59 UTC; unix",
-        "Archs": "data_table.so.dSYM"
-      }
-    },
-    "dichromat": {
-      "Source": "CRAN",
-      "Repository": "https://cran.rstudio.com",
-      "description": {
-        "Package": "dichromat",
-        "Version": "2.0-0.1",
-        "Date": "2013-01-23",
-        "Title": "Color Schemes for Dichromats",
-        "Authors@R": "c(person(given = \"Thomas\", family = \"Lumley\", role =\n        c(\"aut\", \"cre\"), email = \"tlumley@u.washington.edu\"),\n        person(given = \"Ken\", family = \"Knoblauch\", role = \"ctb\", email\n        = \"ken.knoblauch@inserm.fr\"), person(given = \"Scott\", family =\n        \"Waichler\", role = \"ctb\", email = \"scott.waichler@pnl.gov\"),\n        person(given = \"Achim\", family = \"Zeileis\", role = \"ctb\", email\n        = \"Achim.Zeileis@R-project.org\"))",
-        "Description": "Collapse red-green or green-blue distinctions to simulate\n        the effects of different types of color-blindness.",
-        "Depends": "R (>= 2.10), stats",
-        "License": "GPL-2",
-        "LazyLoad": "Yes",
-        "Packaged": "2022-05-02 10:08:06 UTC; hornik",
-        "Author": "Thomas Lumley [aut, cre],\n  Ken Knoblauch [ctb],\n  Scott Waichler [ctb],\n  Achim Zeileis [ctb]",
-        "Maintainer": "Thomas Lumley <tlumley@u.washington.edu>",
-        "Repository": "CRAN",
-        "Date/Publication": "2022-05-02 13:01:50 UTC",
-        "NeedsCompilation": "no",
-        "Built": "R 4.4.0; ; 2024-04-05 15:08:31 UTC; unix"
       }
     },
     "digest": {
@@ -831,69 +675,6 @@
         "Built": "R 4.4.1; ; 2025-05-10 00:28:38 UTC; unix"
       }
     },
-    "geojsonsf": {
-      "Source": "CRAN",
-      "Repository": "https://cran.rstudio.com",
-      "description": {
-        "Package": "geojsonsf",
-        "Type": "Package",
-        "Title": "GeoJSON to Simple Feature Converter",
-        "Version": "2.0.3",
-        "Date": "2022-05-31",
-        "Authors@R": "c(\n    person(\"David\", \"Cooley\", ,\"dcooley@symbolix.com.au\", role = c(\"aut\", \"cre\"))\n    )",
-        "Description": "Converts Between GeoJSON and simple feature objects. ",
-        "License": "MIT + file LICENSE",
-        "URL": "https://github.com/SymbolixAU/geojsonsf",
-        "BugReports": "https://github.com/SymbolixAU/geojsonsf/issues",
-        "Encoding": "UTF-8",
-        "LazyData": "true",
-        "Depends": "R (>= 3.3.0)",
-        "SystemRequirements": "C++11",
-        "LinkingTo": "geometries, jsonify (>= 1.1.1), rapidjsonr (>= 1.2.0), Rcpp,\nsfheaders (>= 0.2.2)",
-        "Imports": "Rcpp",
-        "RoxygenNote": "7.1.0",
-        "Suggests": "covr, jsonify, knitr, rmarkdown, tinytest",
-        "VignetteBuilder": "knitr",
-        "NeedsCompilation": "yes",
-        "Packaged": "2022-05-30 22:52:38 UTC; david",
-        "Author": "David Cooley [aut, cre]",
-        "Maintainer": "David Cooley <dcooley@symbolix.com.au>",
-        "Repository": "CRAN",
-        "Date/Publication": "2022-05-30 23:20:02 UTC",
-        "Built": "R 4.4.0; aarch64-apple-darwin20; 2024-04-06 02:52:25 UTC; unix",
-        "Archs": "geojsonsf.so.dSYM"
-      }
-    },
-    "geometries": {
-      "Source": "CRAN",
-      "Repository": "https://cran.rstudio.com",
-      "description": {
-        "Package": "geometries",
-        "Type": "Package",
-        "Title": "Convert Between R Objects and Geometric Structures",
-        "Date": "2024-01-16",
-        "Version": "0.2.4",
-        "Authors@R": "c(\n    person(\"David\", \"Cooley\", ,\"david.cooley.au@gmail.com\", role = c(\"aut\", \"cre\"))\n    )",
-        "Description": "Geometry shapes in 'R' are typically represented by matrices (points, lines), with more complex \n  shapes being lists of matrices (polygons). 'Geometries' will convert various 'R' objects into these shapes. \n  Conversion functions are available at both the 'R' level, and through 'Rcpp'.",
-        "License": "MIT + file LICENSE",
-        "URL": "https://dcooley.github.io/geometries/",
-        "BugReports": "https://github.com/dcooley/geometries/issues",
-        "Encoding": "UTF-8",
-        "RoxygenNote": "7.2.3",
-        "LinkingTo": "Rcpp",
-        "Imports": "Rcpp (>= 1.0.10)",
-        "Suggests": "covr, knitr, rmarkdown, tinytest",
-        "VignetteBuilder": "knitr",
-        "NeedsCompilation": "yes",
-        "Packaged": "2024-01-15 21:13:39 UTC; david",
-        "Author": "David Cooley [aut, cre]",
-        "Maintainer": "David Cooley <david.cooley.au@gmail.com>",
-        "Repository": "CRAN",
-        "Date/Publication": "2024-01-15 21:50:02 UTC",
-        "Built": "R 4.4.0; aarch64-apple-darwin20; 2024-04-05 15:09:27 UTC; unix",
-        "Archs": "geometries.so.dSYM"
-      }
-    },
     "glue": {
       "Source": "CRAN",
       "Repository": "https://cran.rstudio.com",
@@ -1068,36 +849,6 @@
         "Built": "R 4.4.0; ; 2024-04-06 02:47:36 UTC; unix"
       }
     },
-    "jsonify": {
-      "Source": "CRAN",
-      "Repository": "https://cran.rstudio.com",
-      "description": {
-        "Package": "jsonify",
-        "Type": "Package",
-        "Title": "Convert Between 'R' Objects and Javascript Object Notation\n(JSON)",
-        "Version": "1.2.2",
-        "Date": "2022-11-10",
-        "Authors@R": "c(\n    person(\"David\", \"Cooley\", ,\"dcooley@symbolix.com.au\", role = c(\"aut\", \"cre\")),\n    person(\"Chris\", \"Muir\", role = \"ctb\"),\n    person(\"Brendan\", \"Knapp\", role = \"ctb\", comment = c(ORCID = \"0000-0003-3284-4972\"))\n    )",
-        "Description": "Conversions between 'R' objects and Javascript Object Notation (JSON) using \n    the 'rapidjsonr' library <https://CRAN.R-project.org/package=rapidjsonr>. ",
-        "License": "MIT + file LICENSE",
-        "Depends": "R (>= 3.3.0)",
-        "SystemRequirements": "C++11",
-        "Imports": "Rcpp (>= 0.12.18)",
-        "LinkingTo": "rapidjsonr (>= 1.2.0), Rcpp",
-        "RoxygenNote": "7.1.0",
-        "Suggests": "covr, testthat, knitr, rmarkdown",
-        "Encoding": "UTF-8",
-        "VignetteBuilder": "knitr",
-        "NeedsCompilation": "yes",
-        "Packaged": "2022-11-09 21:45:14 UTC; david",
-        "Author": "David Cooley [aut, cre],\n  Chris Muir [ctb],\n  Brendan Knapp [ctb] (<https://orcid.org/0000-0003-3284-4972>)",
-        "Maintainer": "David Cooley <dcooley@symbolix.com.au>",
-        "Repository": "CRAN",
-        "Date/Publication": "2022-11-09 22:20:02 UTC",
-        "Built": "R 4.4.0; aarch64-apple-darwin20; 2024-04-05 22:34:58 UTC; unix",
-        "Archs": "jsonify.so.dSYM"
-      }
-    },
     "jsonlite": {
       "Source": "CRAN",
       "Repository": "https://cran.rstudio.com",
@@ -1261,85 +1012,6 @@
         "Archs": "lazyeval.so.dSYM"
       }
     },
-    "leafem": {
-      "Source": "CRAN",
-      "Repository": "https://cran.rstudio.com",
-      "description": {
-        "Package": "leafem",
-        "Title": "'leaflet' Extensions for 'mapview'",
-        "Version": "0.2.4",
-        "Authors@R": "\n    c(person(given = \"Tim\",\n             family = \"Appelhans\",\n             role = c(\"cre\", \"aut\"),\n             email = \"tim.appelhans@gmail.com\"),\n      person(given = \"Christoph\",\n             family = \"Reudenbach\",\n             role = \"ctb\",\n             email = \"reudenbach@geo.uni-marburg.de\"),\n      person(given = \"Kenton\",\n             family = \"Russell\",\n             role = \"ctb\"),\n      person(given = \"Jochen\",\n             family = \"Darley\",\n             role = \"ctb\",\n             email = \"Debugger@jedimasters.de\"),\n      person(given = \"Daniel\",\n             family = \"Montague\",\n             role = c(\"ctb\", \"cph\"), \n             comment = \"Leaflet.EasyButton plugin\"),\n      person(given = \"Lorenzo\",\n             family = \"Busetto\",\n             role = c(\"ctb\"), \n             email = \"lbusett@gmail.com\"),\n      person(given = \"Luigi\",\n             family = \"Ranghetti\",\n             role = c(\"ctb\")),\n      person(given = \"Miles\",\n             family = \"McBain\",\n             role = c(\"ctb\")),\n      person(given = \"Sebastian\",\n             family = \"Gatscha\",\n             role = \"ctb\",\n             email = \"sebastian_gatscha@gmx.at\"),\n      person(given = \"Björn\",\n             family = \"Harrtell\",\n             role = c(\"ctb\", \"cph\"),\n             comment = \"FlatGeobuf plugin\"),\n      person(given = \"Daniel\",\n             family = \"Dufour\",\n             role = c(\"ctb\", \"cph\"),\n             comment = \"georaster-layer-for-leaflet\"),\n      person(given = \"Yeedle\",\n             family = \"Neuwirth\",\n             role = \"ctb\"),\n      person(given = \"Derek\",\n             family = \"Friend\",\n             role = \"ctb\",\n             email = \"dafriend.r@gmail.com\"),\n      person(given = \"Kevin\",  \n             family = \"Cazelles\", \n             role = \"ctb\",\n             email = \"kevin.cazelles@gmail.com\", \n             comment = c(ORCID = \"0000-0001-6619-9874\")))",
-        "Maintainer": "Tim Appelhans <tim.appelhans@gmail.com>",
-        "Description": "Provides extensions for packages 'leaflet' & 'mapdeck', \n    many of which are used by package 'mapview'. \n    Focus is on functionality readily available in \n    Geographic Information Systems such as 'Quantum GIS'. Includes functions\n    to display coordinates of mouse pointer position, query image values via \n    mouse pointer and zoom-to-layer buttons. Additionally, provides a feature \n    type agnostic function to add points, lines, polygons to a map.",
-        "License": "MIT + file LICENSE",
-        "URL": "https://github.com/r-spatial/leafem,\nhttps://r-spatial.github.io/leafem/",
-        "BugReports": "https://github.com/r-spatial/leafem/issues",
-        "Depends": "R (>= 3.1.0)",
-        "Imports": "base64enc, geojsonsf, htmltools (>= 0.3), htmlwidgets,\njsonlite, leaflet (>= 2.0.1), methods, raster, sf, png",
-        "Suggests": "clipr, fontawesome, leafgl, lwgeom, mapdeck, plainview,\nstars, terra, tools",
-        "Encoding": "UTF-8",
-        "RoxygenNote": "7.3.2",
-        "NeedsCompilation": "no",
-        "Packaged": "2025-04-30 11:33:58 UTC; tim",
-        "Author": "Tim Appelhans [cre, aut],\n  Christoph Reudenbach [ctb],\n  Kenton Russell [ctb],\n  Jochen Darley [ctb],\n  Daniel Montague [ctb, cph] (Leaflet.EasyButton plugin),\n  Lorenzo Busetto [ctb],\n  Luigi Ranghetti [ctb],\n  Miles McBain [ctb],\n  Sebastian Gatscha [ctb],\n  Björn Harrtell [ctb, cph] (FlatGeobuf plugin),\n  Daniel Dufour [ctb, cph] (georaster-layer-for-leaflet),\n  Yeedle Neuwirth [ctb],\n  Derek Friend [ctb],\n  Kevin Cazelles [ctb] (ORCID: <https://orcid.org/0000-0001-6619-9874>)",
-        "Repository": "CRAN",
-        "Date/Publication": "2025-05-01 13:40:06 UTC",
-        "Built": "R 4.4.1; ; 2025-05-01 15:02:08 UTC; unix"
-      }
-    },
-    "leafgl": {
-      "Source": "CRAN",
-      "Repository": "https://cran.rstudio.com",
-      "description": {
-        "Package": "leafgl",
-        "Title": "High-Performance 'WebGl' Rendering for Package 'leaflet'",
-        "Version": "0.2.2",
-        "Authors@R": "\n    c(person(given = \"Tim\",\n             family = \"Appelhans\",\n             role = c(\"cre\", \"aut\", \"cph\"),\n             email = \"tim.appelhans@gmail.com\"),\n      person(given = \"Colin\",\n             family = \"Fay\",\n             role = \"ctb\",\n             email = \"colin@thinkr.fr\",\n             comment = structure(\"0000-0001-7343-1846\", .Names = \"ORCID\")),\n      person(given = \"Robert\",\n             family = \"Plummer\",\n             role = \"ctb\",\n             comment = \"Leaflet.glify plugin\"),\n      person(given = \"Kent\",\n             family = \"Johnson\",\n             role = \"ctb\",\n             email = \"kjohnson@akoyabio.com\"),\n      person(given = \"Sebastian\",\n             family = \"Gatscha\",\n             role = \"ctb\",\n             email = \"sebastian_gatscha@gmx.at\"),\n      person(given = \"Olivier\", \n             family = \"Roy\", \n             role = \"ctb\"))",
-        "Description": "Provides bindings to the 'Leaflet.glify' JavaScript library which extends the 'leaflet' JavaScript library to render large data in the browser using 'WebGl'.",
-        "License": "MIT + file LICENSE",
-        "Encoding": "UTF-8",
-        "RoxygenNote": "7.3.2",
-        "Imports": "geojsonsf, htmltools, jsonify, leaflet, sf, grDevices",
-        "Suggests": "colourvalues, shiny, testthat (>= 2.1.0)",
-        "URL": "https://github.com/r-spatial/leafgl,\nhttps://r-spatial.github.io/leafgl/",
-        "BugReports": "https://github.com/r-spatial/leafgl/issues",
-        "NeedsCompilation": "no",
-        "Packaged": "2024-11-13 16:39:26 UTC; tim",
-        "Author": "Tim Appelhans [cre, aut, cph],\n  Colin Fay [ctb] (<https://orcid.org/0000-0001-7343-1846>),\n  Robert Plummer [ctb] (Leaflet.glify plugin),\n  Kent Johnson [ctb],\n  Sebastian Gatscha [ctb],\n  Olivier Roy [ctb]",
-        "Maintainer": "Tim Appelhans <tim.appelhans@gmail.com>",
-        "Repository": "CRAN",
-        "Date/Publication": "2024-11-13 18:10:02 UTC",
-        "Built": "R 4.4.1; ; 2024-11-18 04:33:44 UTC; unix"
-      }
-    },
-    "leaflegend": {
-      "Source": "CRAN",
-      "Repository": "https://cran.rstudio.com",
-      "description": {
-        "Package": "leaflegend",
-        "Type": "Package",
-        "Title": "Add Custom Legends to 'leaflet' Maps",
-        "Version": "1.2.1",
-        "Authors@R": "c(\n    person(\"Thomas\", \"Roh\", email = \"thomas@roh.engineering\", role = c(\"aut\", \"cre\")),\n    person(\"Ricardo Rodrigo\", \"Basa\", email = \"radbasa@gmail.com\", role = c(\"ctb\")))",
-        "Description": "Provides extensions to the 'leaflet' package to \n    customize legends with images, text styling, orientation, sizing,\n    and symbology and functions to create symbols to plot on maps.",
-        "License": "MIT + file LICENSE",
-        "Encoding": "UTF-8",
-        "Depends": "R (>= 3.3.0)",
-        "Imports": "leaflet, htmltools, stats, base64enc, htmlwidgets",
-        "RoxygenNote": "7.2.3",
-        "URL": "https://leaflegend.delveds.com,\nhttps://github.com/tomroh/leaflegend",
-        "BugReports": "https://github.com/tomroh/leaflegend/issues",
-        "Suggests": "covr, testthat (>= 3.0.0)",
-        "Config/testthat/edition": "3",
-        "NeedsCompilation": "no",
-        "Packaged": "2024-05-09 14:46:18 UTC; thoma",
-        "Author": "Thomas Roh [aut, cre],\n  Ricardo Rodrigo Basa [ctb]",
-        "Maintainer": "Thomas Roh <thomas@roh.engineering>",
-        "Repository": "CRAN",
-        "Date/Publication": "2024-05-09 15:00:03 UTC",
-        "Built": "R 4.4.0; ; 2024-05-10 04:44:05 UTC; unix"
-      }
-    },
     "leaflet": {
       "Source": "CRAN",
       "Repository": "https://cran.rstudio.com",
@@ -1401,33 +1073,6 @@
         "Built": "R 4.4.0; ; 2024-04-05 22:34:30 UTC; unix"
       }
     },
-    "leafsync": {
-      "Source": "CRAN",
-      "Repository": "https://cran.rstudio.com",
-      "description": {
-        "Package": "leafsync",
-        "Type": "Package",
-        "Title": "Small Multiples for Leaflet Web Maps",
-        "Version": "0.1.0",
-        "Authors@R": "c(\n    person(\"Tim\", \"Appelhans\", role = c(\"aut\", \"cre\"), email = \"tim.appelhans@gmail.com\"),\n    person(\"Kenton\", \"Russell\", role = c(\"aut\")),\n    person(\"Jan Pieter\", \"Wagmeester\", role = c(\"ctb\"), comment = \"Leaflet.Sync plugin\")\n  )",
-        "Maintainer": "Tim Appelhans <tim.appelhans@gmail.com>",
-        "Description": "Create small multiples of several leaflet web maps with (optional) \n    synchronised panning and zooming control. When syncing is enabled all maps \n    respond to mouse actions on one map. This allows side-by-side comparisons\n    of different attributes of the same geometries. Syncing can be adjusted\n    so that any combination of maps can be synchronised.",
-        "License": "MIT + file LICENSE",
-        "URL": "https://github.com/r-spatial/leafsync",
-        "BugReports": "https://github.com/r-spatial/leafsync/issues",
-        "Depends": "R (>= 3.1.0), methods",
-        "Imports": "htmltools (>= 0.3), htmlwidgets, leaflet (>= 2.0.1)",
-        "Encoding": "UTF-8",
-        "LazyData": "true",
-        "RoxygenNote": "6.1.0",
-        "NeedsCompilation": "no",
-        "Packaged": "2019-02-27 17:09:11 UTC; timpanse",
-        "Author": "Tim Appelhans [aut, cre],\n  Kenton Russell [aut],\n  Jan Pieter Wagmeester [ctb] (Leaflet.Sync plugin)",
-        "Repository": "CRAN",
-        "Date/Publication": "2019-03-05 15:10:03 UTC",
-        "Built": "R 4.4.0; ; 2024-04-06 17:01:40 UTC; unix"
-      }
-    },
     "lifecycle": {
       "Source": "CRAN",
       "Repository": "https://cran.rstudio.com",
@@ -1455,69 +1100,6 @@
         "Repository": "CRAN",
         "Date/Publication": "2023-11-07 10:10:10 UTC",
         "Built": "R 4.4.0; ; 2024-04-05 22:31:19 UTC; unix"
-      }
-    },
-    "logger": {
-      "Source": "CRAN",
-      "Repository": "https://cran.rstudio.com",
-      "description": {
-        "Type": "Package",
-        "Package": "logger",
-        "Title": "A Lightweight, Modern and Flexible Logging Utility",
-        "Version": "0.4.0",
-        "Date": "2024-10-19",
-        "Authors@R": "c(\n    person(\"Gergely\", \"Daróczi\", , \"daroczig@rapporter.net\", role = c(\"aut\", \"cre\"),\n           comment = c(ORCID = \"0000-0003-3149-8537\")),\n    person(\"Hadley\", \"Wickham\", , \"hadley@posit.co\", role = \"aut\",\n           comment = c(ORCID = \"0000-0003-4757-117X\")),\n    person(\"System1\", role = \"fnd\")\n  )",
-        "Description": "Inspired by the the 'futile.logger' R package and 'logging'\n    Python module, this utility provides a flexible and extensible way of\n    formatting and delivering log messages with low overhead.",
-        "License": "MIT + file LICENSE",
-        "URL": "https://daroczig.github.io/logger/",
-        "BugReports": "https://github.com/daroczig/logger/issues",
-        "Depends": "R (>= 4.0.0)",
-        "Imports": "utils",
-        "Suggests": "botor, covr, crayon, devtools, glue, jsonlite, knitr, mirai\n(>= 1.3.0), pander, parallel, R.utils, rmarkdown, roxygen2,\nRPushbullet, rsyslog, shiny, slackr (>= 1.4.1), syslognet,\ntelegram, testthat (>= 3.0.0), withr",
-        "Enhances": "futile.logger, log4r, logging",
-        "VignetteBuilder": "knitr",
-        "Config/testthat/edition": "3",
-        "Config/testthat/parallel": "TRUE",
-        "Encoding": "UTF-8",
-        "RoxygenNote": "7.3.2",
-        "NeedsCompilation": "no",
-        "Packaged": "2024-10-20 22:07:23 UTC; daroczig",
-        "Author": "Gergely Daróczi [aut, cre] (<https://orcid.org/0000-0003-3149-8537>),\n  Hadley Wickham [aut] (<https://orcid.org/0000-0003-4757-117X>),\n  System1 [fnd]",
-        "Maintainer": "Gergely Daróczi <daroczig@rapporter.net>",
-        "Repository": "CRAN",
-        "Date/Publication": "2024-10-22 08:00:07 UTC",
-        "Built": "R 4.4.1; ; 2025-01-24 21:21:27 UTC; unix"
-      }
-    },
-    "lwgeom": {
-      "Source": "CRAN",
-      "Repository": "https://cran.rstudio.com",
-      "description": {
-        "Package": "lwgeom",
-        "Version": "0.2-14",
-        "Title": "Bindings to Selected 'liblwgeom' Functions for Simple Features",
-        "Description": "Access to selected functions found in 'liblwgeom' <https://github.com/postgis/postgis/tree/master/liblwgeom>, the light-weight geometry library used by 'PostGIS' <http://postgis.net/>.",
-        "Authors@R": "c(person(\"Edzer\", \"Pebesma\", role = c(\"aut\", \"cre\"), email = \"edzer.pebesma@uni-muenster.de\", comment = c(ORCID = \"0000-0001-8049-7069\")),\n\tperson(\"Colin\", \"Rundel\", role = \"ctb\"),\n\tperson(\"Andy\", \"Teucher\", role = \"ctb\"),\n\tperson(\"liblwgeom developers\", role = \"cph\"))",
-        "Depends": "R (>= 3.3.0)",
-        "Imports": "Rcpp, units, sf (>= 1.0-15)",
-        "Suggests": "covr, sp, geosphere, testthat",
-        "LinkingTo": "Rcpp, sf (>= 0.6-0)",
-        "SystemRequirements": "GEOS (>= 3.5.0), PROJ (>= 4.8.0), sqlite3",
-        "License": "GPL-2",
-        "Copyright": "file COPYRIGHTS",
-        "Encoding": "UTF-8",
-        "URL": "https://r-spatial.github.io/lwgeom/,\nhttps://github.com/r-spatial/lwgeom",
-        "BugReports": "https://github.com/r-spatial/lwgeom/issues",
-        "Collate": "init.R RcppExports.R geohash.R split.R subdivide.R valid.R\ntransform.R bounding_circle.R bearing.R snap_to_grid.R\nstartpoint.R twkb.R perimeter.R clockwise.R geod.R wkt.R\nwrap_x.R",
-        "RoxygenNote": "7.3.1",
-        "NeedsCompilation": "yes",
-        "Packaged": "2024-02-21 14:39:21 UTC; edzer",
-        "Author": "Edzer Pebesma [aut, cre] (<https://orcid.org/0000-0001-8049-7069>),\n  Colin Rundel [ctb],\n  Andy Teucher [ctb],\n  liblwgeom developers [cph]",
-        "Maintainer": "Edzer Pebesma <edzer.pebesma@uni-muenster.de>",
-        "Repository": "CRAN",
-        "Date/Publication": "2024-02-21 21:30:02 UTC",
-        "Built": "R 4.4.0; aarch64-apple-darwin20; 2024-04-06 09:15:00 UTC; unix",
-        "Archs": "lwgeom.so.dSYM"
       }
     },
     "magrittr": {
@@ -1738,31 +1320,6 @@
         "Archs": "proxy.so.dSYM"
       }
     },
-    "rapidjsonr": {
-      "Source": "CRAN",
-      "Repository": "https://cran.rstudio.com",
-      "description": {
-        "Package": "rapidjsonr",
-        "Type": "Package",
-        "Title": "'Rapidjson' C++ Header Files",
-        "Version": "1.2.0",
-        "Date": "2020-03-08",
-        "Authors@R": "c(\n    person(\"David\", \"Cooley\", ,\"dcooley@symbolix.com.au\", role = c(\"aut\", \"cre\")),\n    person(\"Milo\", \"Yip\", , role = \"ctb\", comment = \"Author of c++ rapidjson library, provided through THL A29 Limited, a Tencent company\"),\n    person(\"Alexander\", \"Chemeris\", role = \"ctb\", comment = \"Author of c++ msinttypes library\")\n    )",
-        "Description": "Provides JSON parsing capability through the 'Rapidjson' 'C++' header-only library. ",
-        "License": "MIT + file LICENSE",
-        "Encoding": "UTF-8",
-        "LazyData": "true",
-        "RoxygenNote": "7.0.2",
-        "SystemRequirements": "GNU make",
-        "NeedsCompilation": "yes",
-        "Packaged": "2020-03-08 06:44:13 UTC; dave",
-        "Author": "David Cooley [aut, cre],\n  Milo Yip [ctb] (Author of c++ rapidjson library, provided through THL\n    A29 Limited, a Tencent company),\n  Alexander Chemeris [ctb] (Author of c++ msinttypes library)",
-        "Maintainer": "David Cooley <dcooley@symbolix.com.au>",
-        "Repository": "CRAN",
-        "Date/Publication": "2020-03-08 07:10:02 UTC",
-        "Built": "R 4.4.0; ; 2024-04-05 15:08:48 UTC; unix"
-      }
-    },
     "rappdirs": {
       "Source": "CRAN",
       "Repository": "https://cran.rstudio.com",
@@ -1975,33 +1532,6 @@
         "Built": "R 4.4.1; ; 2025-04-24 11:40:07 UTC; unix"
       }
     },
-    "servr": {
-      "Source": "CRAN",
-      "Repository": "https://cran.rstudio.com",
-      "description": {
-        "Package": "servr",
-        "Type": "Package",
-        "Title": "A Simple HTTP Server to Serve Static Files or Dynamic Documents",
-        "Version": "0.32",
-        "Authors@R": "c(\n  person(\"Yihui\", \"Xie\", role = c(\"aut\", \"cre\"), email = \"xie@yihui.name\", comment = c(ORCID = \"0000-0003-0645-5666\")),\n  person(\"Carson\", \"Sievert\", role = \"ctb\"),\n  person(\"Jesse\", \"Anderson\", role = \"ctb\"),\n  person(\"Ramnath\", \"Vaidyanathan\", role = \"ctb\"),\n  person(\"Romain\", \"Lesur\", role = \"ctb\"),\n  person(given = \"Posit Software, PBC\", role = c(\"cph\", \"fnd\")),\n  person()\n  )",
-        "Description": "Start an HTTP server in R to serve static files, or dynamic\n    documents that can be converted to HTML files (e.g., R Markdown) under a\n    given directory.",
-        "Depends": "R (>= 3.0.0)",
-        "Imports": "mime (>= 0.2), httpuv (>= 1.5.2), xfun (>= 0.48), jsonlite",
-        "Suggests": "tools, later, rstudioapi, knitr (>= 1.9), rmarkdown",
-        "License": "GPL",
-        "URL": "https://github.com/yihui/servr",
-        "BugReports": "https://github.com/yihui/servr/issues",
-        "Encoding": "UTF-8",
-        "RoxygenNote": "7.3.2",
-        "NeedsCompilation": "no",
-        "Packaged": "2024-10-04 15:28:44 UTC; yihui",
-        "Author": "Yihui Xie [aut, cre] (<https://orcid.org/0000-0003-0645-5666>),\n  Carson Sievert [ctb],\n  Jesse Anderson [ctb],\n  Ramnath Vaidyanathan [ctb],\n  Romain Lesur [ctb],\n  Posit Software, PBC [cph, fnd]",
-        "Maintainer": "Yihui Xie <xie@yihui.name>",
-        "Repository": "CRAN",
-        "Date/Publication": "2024-10-04 17:20:02 UTC",
-        "Built": "R 4.4.1; ; 2024-10-04 19:01:48 UTC; unix"
-      }
-    },
     "sf": {
       "Source": "CRAN",
       "Repository": "https://cran.rstudio.com",
@@ -2033,36 +1563,6 @@
         "Date/Publication": "2025-03-24 21:40:02 UTC",
         "Built": "R 4.4.1; aarch64-apple-darwin20; 2025-03-24 22:14:48 UTC; unix",
         "Archs": "sf.so.dSYM"
-      }
-    },
-    "sfheaders": {
-      "Source": "CRAN",
-      "Repository": "https://cran.rstudio.com",
-      "description": {
-        "Package": "sfheaders",
-        "Type": "Package",
-        "Title": "Converts Between R Objects and Simple Feature Objects",
-        "Date": "2024-01-18",
-        "Version": "0.4.4",
-        "Authors@R": "c(\n    person(\"David\", \"Cooley\", ,\"david.cooley.au@gmail.com\", role = c(\"aut\", \"cre\")),\n    person(given = \"Michael\", family = \"Sumner\", role = \"ctb\")\n    )",
-        "Description": "Converts between R and Simple Feature 'sf' objects, without depending\n  on the Simple Feature library. Conversion functions are available at both the R level, \n  and through 'Rcpp'.",
-        "License": "MIT + file LICENSE",
-        "URL": "https://dcooley.github.io/sfheaders/",
-        "BugReports": "https://github.com/dcooley/sfheaders/issues",
-        "Encoding": "UTF-8",
-        "RoxygenNote": "7.2.3",
-        "Depends": "R (>= 3.0.2)",
-        "LinkingTo": "geometries (>= 0.2.4), Rcpp",
-        "Imports": "Rcpp (>= 1.0.10)",
-        "Suggests": "covr, knitr, testthat",
-        "NeedsCompilation": "yes",
-        "Packaged": "2024-01-17 21:15:30 UTC; dave",
-        "Author": "David Cooley [aut, cre],\n  Michael Sumner [ctb]",
-        "Maintainer": "David Cooley <david.cooley.au@gmail.com>",
-        "Repository": "CRAN",
-        "Date/Publication": "2024-01-17 21:50:02 UTC",
-        "Built": "R 4.4.0; aarch64-apple-darwin20; 2024-04-05 22:35:30 UTC; unix",
-        "Archs": "sfheaders.so.dSYM"
       }
     },
     "shiny": {
@@ -2146,95 +1646,6 @@
         "Date/Publication": "2025-02-01 09:40:02 UTC",
         "Built": "R 4.4.1; aarch64-apple-darwin20; 2025-02-01 19:40:21 UTC; unix",
         "Archs": "sp.so.dSYM"
-      }
-    },
-    "spacesXYZ": {
-      "Source": "CRAN",
-      "Repository": "https://cran.rstudio.com",
-      "description": {
-        "Package": "spacesXYZ",
-        "Type": "Package",
-        "Title": "CIE XYZ and some of Its Derived Color Spaces",
-        "Version": "1.5-1",
-        "Encoding": "UTF-8",
-        "Date": "2025-02-09",
-        "Authors@R": "person(\"Glenn\", \"Davis\", role=c(\"aut\", \"cre\"), email=\"gdavis@gluonics.com\")",
-        "Maintainer": "Glenn Davis <gdavis@gluonics.com>",
-        "Description": "Functions for converting among CIE XYZ, xyY, Lab, and Luv.\n      Calculate Correlated Color Temperature (CCT) and the Planckian and daylight loci.  \n      The XYZs of some standard illuminants and some standard linear chromatic adaptation transforms (CATs) are included.\n      Three standard color difference metrics are included, plus the forward direction of the 'CIECAM02' color appearance model.",
-        "License": "GPL (>= 3)",
-        "LazyLoad": "yes",
-        "LazyData": "yes",
-        "Depends": "R (>= 4.0.0)",
-        "Imports": "logger",
-        "Suggests": "knitr, rmarkdown, microbenchmark",
-        "Enhances": "colorSpec",
-        "Repository": "CRAN",
-        "VignetteBuilder": "knitr",
-        "BuildVignettes": "yes",
-        "NeedsCompilation": "no",
-        "Packaged": "2025-02-09 23:38:28 UTC; Glenn",
-        "Author": "Glenn Davis [aut, cre]",
-        "Date/Publication": "2025-02-10 00:00:02 UTC",
-        "Built": "R 4.4.1; ; 2025-02-10 01:05:00 UTC; unix"
-      }
-    },
-    "stars": {
-      "Source": "CRAN",
-      "Repository": "https://cran.rstudio.com",
-      "description": {
-        "Package": "stars",
-        "Title": "Spatiotemporal Arrays, Raster and Vector Data Cubes",
-        "Version": "0.6-8",
-        "Authors@R": "\n    c(person(given = \"Edzer\",\n             family = \"Pebesma\",\n             role = c(\"aut\", \"cre\"),\n             email = \"edzer.pebesma@uni-muenster.de\",\n             comment = c(ORCID = \"0000-0001-8049-7069\")),\n      person(given = \"Michael\",\n             family = \"Sumner\",\n             role = \"ctb\", \n             comment=c(ORCID = \"0000-0002-2471-7511\")),\n      person(given = \"Etienne\",\n             family = \"Racine\",\n             role = \"ctb\"),\n      person(given = \"Adriano\",\n             family = \"Fantini\",\n             role = \"ctb\"), \n      person(given = \"David\", \n             family = \"Blodgett\", \n             role = \"ctb\"), \n      person(given = \"Krzysztof\", \n             family = \"Dyba\", \n             role = \"ctb\",\n             comment=c(ORCID = \"0000-0002-8614-3816\")))",
-        "Description": "Reading, manipulating, writing and plotting\n    spatiotemporal arrays (raster and vector data cubes) in 'R', using 'GDAL'\n    bindings provided by 'sf', and 'NetCDF' bindings by 'ncmeta' and 'RNetCDF'.",
-        "License": "Apache License",
-        "URL": "https://r-spatial.github.io/stars/,\nhttps://github.com/r-spatial/stars/",
-        "BugReports": "https://github.com/r-spatial/stars/issues/",
-        "Additional_repositories": "https://cran.uni-muenster.de/pebesma/",
-        "LazyData": "true",
-        "Depends": "R (>= 3.3.0), abind, sf (>= 1.0-19)",
-        "Imports": "methods, parallel, classInt (>= 0.4-1), rlang, units",
-        "Suggests": "Cairo, OpenStreetMap, PCICt, RNetCDF (>= 1.8-2), clue, covr,\ncubble (>= 0.3.0), cubelyr, digest, dplyr (>= 0.7-0),\nexactextractr, FNN, future.apply, ggforce, ggplot2, ggthemes,\ngstat, httr, jsonlite, knitr, lwgeom, maps, mapdata, ncdfgeom,\nncmeta (>= 0.0.3), pbapply, plm, randomForest, raster,\nrmarkdown, sp, spacetime, spatstat (>= 2.0-1), spatstat.geom,\nstarsdata, terra (>= 1.4-22), testthat, tibble, tidyr, tsibble,\nviridis, xts, zoo",
-        "VignetteBuilder": "knitr",
-        "Encoding": "UTF-8",
-        "RoxygenNote": "7.3.2",
-        "Collate": "'aggregate.R' 'cubble.R' 'datasets.R' 'dimensions.R'\n'extract.R' 'factors.R' 'geom.R' 'gt.R' 'init.R' 'intervals.R'\n'mdim.R' 'mosaic.R' 'ncdf.R' 'ncproxy.R' 'OpenStreetMap.R'\n'ops.R' 'plot.R' 'prcomp.R' 'proxy.R' 'rasterize.R' 'raster.R'\n'read.R' 'rotate.R' 'sample.R' 'sf.R' 'spacetime.R'\n'spatstat.R' 'sp.R' 'stars.R' 'subset.R' 'tidyverse.R' 'tile.R'\n'transform.R' 'values.R' 'warp.R' 'write.R' 'xts.R'",
-        "NeedsCompilation": "no",
-        "Packaged": "2025-02-01 17:31:06 UTC; edzer",
-        "Author": "Edzer Pebesma [aut, cre] (<https://orcid.org/0000-0001-8049-7069>),\n  Michael Sumner [ctb] (<https://orcid.org/0000-0002-2471-7511>),\n  Etienne Racine [ctb],\n  Adriano Fantini [ctb],\n  David Blodgett [ctb],\n  Krzysztof Dyba [ctb] (<https://orcid.org/0000-0002-8614-3816>)",
-        "Maintainer": "Edzer Pebesma <edzer.pebesma@uni-muenster.de>",
-        "Repository": "CRAN",
-        "Date/Publication": "2025-02-01 18:50:02 UTC",
-        "Built": "R 4.4.1; ; 2025-02-01 19:43:12 UTC; unix"
-      }
-    },
-    "stringdist": {
-      "Source": "CRAN",
-      "Repository": "https://cran.rstudio.com",
-      "description": {
-        "Package": "stringdist",
-        "Maintainer": "Mark van der Loo <mark.vanderloo@gmail.com>",
-        "License": "GPL-3",
-        "Title": "Approximate String Matching, Fuzzy Text Search, and String\nDistance Functions",
-        "Type": "Package",
-        "LazyLoad": "yes",
-        "Authors@R": "c( person(\"Mark\", \"van der Loo\", role=c(\"aut\",\"cre\")\n             , email=\"mark.vanderloo@gmail.com\"\n             , comment= c(ORCID=\"0000-0002-9807-4686\"))\n            , person(\"Jan\", \"van der Laan\", role=\"ctb\")\n            , person(\"R Core Team\",\"\"     , role=\"ctb\")\n            , person(\"Nick\",\"Logan\"       , role=\"ctb\")\n            , person(\"Chris\",\"Muir\"       , role=\"ctb\")\n            , person(\"Johannes\", \"Gruber\" , role=\"ctb\")\n            , person(\"Brian\",\"Ripley\"     , role=\"ctb\"))",
-        "Description": "Implements an approximate string matching version of R's native\n    'match' function. Also offers fuzzy text search based on various string\n     distance measures. Can calculate various string distances based on edits\n    (Damerau-Levenshtein, Hamming, Levenshtein, optimal sting alignment), qgrams (q-\n    gram, cosine, jaccard distance) or heuristic metrics (Jaro, Jaro-Winkler). An\n    implementation of soundex is provided as well. Distances can be computed between\n    character vectors while taking proper care of encoding or between integer\n    vectors representing generic sequences. This package is built for speed and\n    runs in parallel by using 'openMP'. An API for C or C++ is exposed as well.\n    Reference: MPJ van der Loo (2014) <doi:10.32614/RJ-2014-011>.",
-        "Version": "0.9.15",
-        "Depends": "R (>= 2.15.3)",
-        "URL": "https://github.com/markvanderloo/stringdist",
-        "BugReports": "https://github.com/markvanderloo/stringdist/issues",
-        "Suggests": "tinytest",
-        "Imports": "parallel",
-        "Encoding": "UTF-8",
-        "RoxygenNote": "7.3.2",
-        "NeedsCompilation": "yes",
-        "Packaged": "2025-01-10 09:51:08 UTC; mark",
-        "Author": "Mark van der Loo [aut, cre] (<https://orcid.org/0000-0002-9807-4686>),\n  Jan van der Laan [ctb],\n  R Core Team [ctb],\n  Nick Logan [ctb],\n  Chris Muir [ctb],\n  Johannes Gruber [ctb],\n  Brian Ripley [ctb]",
-        "Repository": "CRAN",
-        "Date/Publication": "2025-01-10 10:50:02 UTC",
-        "Built": "R 4.4.1; aarch64-apple-darwin20; 2025-01-24 21:01:34 UTC; unix",
-        "Archs": "stringdist.so.dSYM"
       }
     },
     "terra": {
@@ -2358,65 +1769,6 @@
         "Repository": "CRAN",
         "Date/Publication": "2025-04-15 15:50:03 UTC",
         "Built": "R 4.4.1; ; 2025-04-15 16:16:54 UTC; unix"
-      }
-    },
-    "tmap": {
-      "Source": "CRAN",
-      "Repository": "https://cran.rstudio.com",
-      "description": {
-        "Package": "tmap",
-        "Title": "Thematic Maps",
-        "Version": "4.0",
-        "Authors@R": "c(\n    person(\"Martijn\", \"Tennekes\", , \"mtennekes@gmail.com\", role = c(\"aut\", \"cre\")),\n    person(\"Jakub\", \"Nowosad\", , \"nowosad.jakub@gmail.com\", role = \"ctb\"),\n    person(\"Joel\", \"Gombin\", , \"joel.gombin@gmail.com\", role = \"ctb\"),\n    person(\"Sebastian\", \"Jeworutzki\", , \"Sebastian.Jeworutzki@rub.de\", role = \"ctb\"),\n    person(\"Kent\", \"Russell\", , \"kent.russell@timelyportfolio.com\", role = \"ctb\"),\n    person(\"Richard\", \"Zijdeman\", , \"richard.zijdeman@iisg.nl\", role = \"ctb\"),\n    person(\"John\", \"Clouse\", , \"johnaclouse@gmail.com\", role = \"ctb\"),\n    person(\"Robin\", \"Lovelace\", , \"rob00x@gmail.com\", role = \"ctb\"),\n    person(\"Jannes\", \"Muenchow\", , \"jannes.muenchow@uni-jena.de\", role = \"ctb\"),\n    person(\"Olivier\", \"Roy\", role = \"ctb\"),\n    person(\"Edzer\", \"Pebesma\", , \"edzer.pebesma@uni-muenster.de\", role = \"ctb\"),\n    person(\"Hugh\", \"Graham\", , \"hugh.a.graham@gmail.com\", role = \"ctb\"),\n    person(\"Michael D.\", \"Sumner\", , \"mdsumner@gmail.com\", role = \"ctb\"),\n    person(\"Tim\", \"Appelhans\", , \"tim.appelhans@gmail.com\", role = \"ctb\"),\n    person(\"Nick\", \"Bearman\", , \"nick@nickbearman.com\", role = \"ctb\"))",
-        "Description": "Thematic maps are geographical maps in which spatial data\n    distributions are visualized. This package offers a flexible,\n    layer-based, and easy to use approach to create thematic maps, such as\n    choropleths and bubble maps.",
-        "License": "GPL-3",
-        "URL": "https://github.com/r-tmap/tmap, https://r-tmap.github.io/tmap/",
-        "BugReports": "https://github.com/r-tmap/tmap/issues",
-        "Depends": "R (>= 4.1)",
-        "Imports": "classInt (>= 0.4-3), cli, cols4all (>= 0.8), data.table, grid,\nhtmltools, htmlwidgets, leafem (>= 0.1), leafgl, leaflegend,\nleaflet (>= 2.0.2), leafsync, methods, rlang, sf (>= 0.9-3),\nstars (>= 0.4-2), stats, s2, tmaptools (>= 3.1), units (>=\n0.6-1), servr,",
-        "Suggests": "av, colorspace, ggplot2, gifski, knitr, maptiles, png, shiny,\nterra, testthat (>= 3.2.0), widgetframe, lobstr, rstudioapi",
-        "Config/Needs/check": "Nowosad/spDataLarge, lwgeom",
-        "Config/Needs/coverage": "Nowosad/spDataLarge, lwgeom",
-        "Config/Needs/website": "bookdown, geofacet, rmarkdown, mapview, sits,\nr-spatial/leafem, mapsf, r-tmap/tmap.glyphs,\nr-tmap/tmap.networks, r-tmap/tmap.deckgl, sfnetworks,\nr-tmap/tmap.cartogram",
-        "Config/testthat/edition": "3",
-        "Encoding": "UTF-8",
-        "LazyData": "true",
-        "RoxygenNote": "7.3.2",
-        "NeedsCompilation": "no",
-        "Packaged": "2025-01-27 20:26:32 UTC; mtes",
-        "Author": "Martijn Tennekes [aut, cre],\n  Jakub Nowosad [ctb],\n  Joel Gombin [ctb],\n  Sebastian Jeworutzki [ctb],\n  Kent Russell [ctb],\n  Richard Zijdeman [ctb],\n  John Clouse [ctb],\n  Robin Lovelace [ctb],\n  Jannes Muenchow [ctb],\n  Olivier Roy [ctb],\n  Edzer Pebesma [ctb],\n  Hugh Graham [ctb],\n  Michael D. Sumner [ctb],\n  Tim Appelhans [ctb],\n  Nick Bearman [ctb]",
-        "Maintainer": "Martijn Tennekes <mtennekes@gmail.com>",
-        "Repository": "CRAN",
-        "Date/Publication": "2025-01-27 23:30:02 UTC",
-        "Built": "R 4.4.1; ; 2025-01-27 23:55:57 UTC; unix"
-      }
-    },
-    "tmaptools": {
-      "Source": "CRAN",
-      "Repository": "https://cran.rstudio.com",
-      "description": {
-        "Package": "tmaptools",
-        "Type": "Package",
-        "Title": "Thematic Map Tools",
-        "Version": "3.2",
-        "Authors@R": "person(\"Martijn\", \"Tennekes\", email = \"mtennekes@gmail.com\", role = c(\"aut\", \"cre\"))",
-        "Description": "Set of tools for reading and processing spatial data. The aim is to supply the workflow to create thematic maps. This package also facilitates 'tmap', the package for visualizing thematic maps.",
-        "License": "GPL-3",
-        "Encoding": "UTF-8",
-        "Date": "2025-01-13",
-        "Depends": "R (>= 3.5), methods",
-        "Imports": "sf (>= 0.9.2), lwgeom (>= 0.1-4), stars (>= 0.4-1), units (>=\n0.6-1), grid, magrittr, RColorBrewer, viridisLite, stats,\ndichromat, XML",
-        "Suggests": "tmap, cols4all, rmapshaper, osmdata, OpenStreetMap, raster,\npng, shiny, shinyjs",
-        "URL": "https://github.com/r-tmap/tmaptools,\nhttps://r-tmap.github.io/tmaptools/",
-        "BugReports": "https://github.com/r-tmap/tmaptools/issues",
-        "RoxygenNote": "7.3.2",
-        "NeedsCompilation": "no",
-        "Packaged": "2025-01-13 22:01:21 UTC; mtes",
-        "Author": "Martijn Tennekes [aut, cre]",
-        "Maintainer": "Martijn Tennekes <mtennekes@gmail.com>",
-        "Repository": "CRAN",
-        "Date/Publication": "2025-01-13 22:40:02 UTC",
-        "Built": "R 4.4.1; ; 2025-01-14 01:50:38 UTC; unix"
       }
     },
     "units": {
@@ -2684,7 +2036,7 @@
       "checksum": "0240e054216124f08bb87462f604633c"
     },
     "app.R": {
-      "checksum": "e8e16b8cb2d84ca44f3a014f93fdd12d"
+      "checksum": "903bea2e2510314dc6eaa341af786cb6"
     },
     "const24_simplified.rds": {
       "checksum": "196e57b865a52fcfac64b4d7ebd6df1c"

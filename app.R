@@ -1,5 +1,4 @@
 library(shiny)
-library(tmap)
 library(sf)
 library(dplyr)
 library(leaflet)
@@ -111,15 +110,13 @@ ui <- fluidPage(
     ),
     
     mainPanel(
-      tmapOutput("map", height = "800px")
+      leafletOutput("map", height = "800px")
     )
   )
 )
 
 server <- function(input, output, session) {
   
-  
-  tmap_mode("view")
   # Get the appropriate dataset
   selected_data <- reactive({
     switch(input$grid_type,
@@ -151,6 +148,9 @@ server <- function(input, output, session) {
       if (input$area != "all") {
         data <- data %>% filter(.data[[input$geo_type]] == input$area)
       }
+      
+      # Transform to WGS84 for leaflet
+      data <- st_transform(data, crs = 4326)
       
       return(data)
       
@@ -185,70 +185,115 @@ server <- function(input, output, session) {
           filter(.data[[input$geo_type]] == input$area)
       }
       
+      # Transform to WGS84 for leaflet
+      data_change <- st_transform(data_change, crs = 4326)
+      
       return(data_change)
     }
   })
   
+  # Create color palette function
+  get_palette <- reactive({
+    data <- filtered_data()
+    
+    if (input$map_type == "single") {
+      values <- data[[input$variable]]
+      
+      if (input$variable == "cath_prot_balance_pct") {
+        # Diverging palette centered at 50
+        colorNumeric(
+          palette = c("#FFB6C1", "#F0E68C", "#48D1CC"),  # lightsalmon1, khaki, turquoise3
+          domain = values,
+          na.color = "transparent"
+        )
+      } else if (input$variable == "catholic_pct") {
+        colorNumeric(
+          palette = c("#CCCCCC", "#006400"),  # gray80 to darkgreen
+          domain = values,
+          na.color = "transparent"
+        )
+      } else if (input$variable == "protestant_pct") {
+        colorNumeric(
+          palette = c("#CCCCCC", "#00008B"),  # gray80 to darkblue
+          domain = values,
+          na.color = "transparent"
+        )
+      } else {
+        colorNumeric(
+          palette = "YlOrRd",
+          domain = values,
+          na.color = "transparent"
+        )
+      }
+    } else {
+      # Change map - diverging palette
+      values <- data$change
+      colorNumeric(
+        palette = c("#0000FF", "#FFFFFF", "#FF0000"),  # blue to white to red
+        domain = c(-max(abs(values), na.rm = TRUE), max(abs(values), na.rm = TRUE)),
+        na.color = "transparent"
+      )
+    }
+  })
+  
   # Create map
-  output$map <- renderTmap({
+  output$map <- renderLeaflet({
     req(filtered_data())
+    
+    data <- filtered_data()
+    pal <- get_palette()
     
     # Get variable label
     var_label <- names(var_choices)[var_choices == input$variable]
     
+    # Determine which column to map
     if (input$map_type == "single") {
-      # Single year map
-      
-      # Use custom diverging scale for Catholic-Protestant Balance
-      if (input$variable == "cath_prot_balance_pct") {
-        fill_scale <- tm_scale_continuous(
-          values = c("lightsalmon1", "khaki", "turquoise3"),
-          midpoint = 50
-        )
-        }
-      else if (input$variable == "catholic_pct") {
-        fill_scale <- tm_scale_continuous(
-          values = c("gray80", "darkgreen")
-        )
-      } 
-      else if (input$variable == "protestant_pct") {
-        fill_scale <- tm_scale_continuous(
-          values = c("gray80", "darkblue")
-        )
-      } 
-      else {
-        fill_scale <- tm_scale_continuous(values = "brewer.yl_or_rd")
-      }
-      
-      map <- tm_shape(filtered_data()) +
-        tm_fill(
-          fill = input$variable,
-          fill.scale = fill_scale,
-          fill.legend = tm_legend(title = var_label, position = tm_pos_in("left", "top")),
-          fill_alpha = input$alpha,
-          popup.vars = c("gridsquare", input$geo_type, input$variable)
-        )
-      
+      map_column <- input$variable
+      legend_title <- var_label
       title_text <- paste0(input$year, ": ", var_label)
-      
     } else {
-      # Change map
-      map <- tm_shape(filtered_data()) +
-        tm_fill(
-          fill = "change",
-          fill.scale = tm_scale_continuous(
-            values = c("blue", "white", "red"),
-            midpoint = 0
-          ),
-          fill.legend = tm_legend(title = paste("Change in", var_label), position = tm_pos_in("left", "top")),
-          fill_alpha = input$alpha,
-          popup.vars = c("gridsquare", input$geo_type, "change")
-        )
-      
-      title_text <- paste0("Change ", input$year_from, " to ", input$year_to, 
-                           ": ", var_label)
+      map_column <- "change"
+      legend_title <- paste("Change in", var_label)
+      title_text <- paste0("Change ", input$year_from, " to ", input$year_to, ": ", var_label)
     }
     
+    # Create popup text
+    if (input$map_type == "single") {
+      popup_text <- paste0(
+        "<strong>Grid Square:</strong> ", data$gridsquare, "<br>",
+        "<strong>", input$geo_type, ":</strong> ", data[[input$geo_type]], "<br>",
+        "<strong>", var_label, ":</strong> ", round(data[[input$variable]], 2)
+      )
+    } else {
+      popup_text <- paste0(
+        "<strong>Grid Square:</strong> ", data$gridsquare, "<br>",
+        "<strong>", input$geo_type, ":</strong> ", data[[input$geo_type]], "<br>",
+        "<strong>Change:</strong> ", round(data$change, 2)
+      )
+    }
+    
+    # Create base map
+    map <- leaflet(data) %>%
+      addTiles() %>%
+      addPolygons(
+        fillColor = ~pal(data[[map_column]]),
+        fillOpacity = input$alpha,
+        color = "white",
+        weight = 0.5,
+        popup = popup_text,
+        highlightOptions = highlightOptions(
+          weight = 2,
+          color = "#666",
+          fillOpacity = min(input$alpha + 0.2, 1)
+        )
+      ) %>%
+      addLegend(
+        pal = pal,
+        values = ~data[[map_column]],
+        title = legend_title,
+        position = "topright",
+        opacity = 1
+      )
     
     # Add boundaries if requested
     if (input$show_boundaries) {
@@ -261,7 +306,6 @@ server <- function(input, output, session) {
       if (!is.null(boundary_data)) {
         # Filter boundaries if specific area selected
         if (input$area != "all") {
-          # Get the name column from boundary data (same as geo_type)
           name_col <- input$geo_type
           
           if (name_col %in% names(boundary_data)) {
@@ -270,15 +314,28 @@ server <- function(input, output, session) {
           }
         }
         
-        map <- map +
-          tm_shape(boundary_data) +
-          tm_borders(col = "black", lwd = 2)
+        # Transform boundaries to WGS84
+        boundary_data <- st_transform(boundary_data, crs = 4326)
+        
+        map <- map %>%
+          addPolygons(
+            data = boundary_data,
+            fillColor = "transparent",
+            fillOpacity = 0,
+            color = "black",
+            weight = 2,
+            popup = NULL
+          )
       }
     }
     
-    map <- map +
-      tm_title(title_text) +
-      tm_layout(legend.reverse = TRUE)
+    # Add title as control
+    map <- map %>%
+      addControl(
+        html = paste0("<div style='background: white; padding: 5px; border-radius: 5px;'><strong>", 
+                      title_text, "</strong></div>"),
+        position = "topleft"
+      )
     
     map
   })
