@@ -106,7 +106,18 @@ ui <- fluidPage(
       
       # Show boundaries
       checkboxInput("show_boundaries", "Show Geographic Boundaries", 
-                    value = TRUE)
+                    value = TRUE),
+      
+      # Basemap selection
+      selectInput("basemap", "Basemap:",
+                  choices = c(
+                    "OpenStreetMap" = "OpenStreetMap",
+                    "CartoDB Positron" = "CartoDB.Positron",
+                    "CartoDB Dark Matter" = "CartoDB.DarkMatter",
+                    "Esri World Imagery" = "Esri.WorldImagery",
+                    "Esri World Street Map" = "Esri.WorldStreetMap"
+                  ),
+                  selected = "OpenStreetMap")
     ),
     
     mainPanel(
@@ -202,7 +213,7 @@ server <- function(input, output, session) {
       if (input$variable == "cath_prot_balance_pct") {
         # Diverging palette centered at 50
         colorNumeric(
-          palette = c("#FFB6C1", "#F0E68C", "#48D1CC"),  # lightsalmon1, khaki, turquoise3
+          palette = c("#00008B", "#F0E68C", "#006400"),
           domain = values,
           na.color = "transparent"
         )
@@ -274,7 +285,7 @@ server <- function(input, output, session) {
     
     # Create base map
     map <- leaflet(data) %>%
-      addTiles() %>%
+      addProviderTiles(input$basemap) %>%
       addPolygons(
         fillColor = ~pal(data[[map_column]]),
         fillOpacity = input$alpha,
