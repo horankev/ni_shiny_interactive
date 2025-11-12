@@ -115,7 +115,10 @@ ui <- fluidPage(
                     "CartoDB Positron" = "CartoDB.Positron",
                     "CartoDB Dark Matter" = "CartoDB.DarkMatter",
                     "Esri World Imagery" = "Esri.WorldImagery",
-                    "Esri World Street Map" = "Esri.WorldStreetMap"
+                    "Esri World Street Map" = "Esri.WorldStreetMap",
+                    "Stamen Terrain" = "Stamen.Terrain",
+                    "Stamen Toner" = "Stamen.Toner",
+                    "Stamen Toner Lite" = "Stamen.TonerLite"
                   ),
                   selected = "OpenStreetMap")
     ),
@@ -219,13 +222,13 @@ server <- function(input, output, session) {
         )
       } else if (input$variable == "catholic_pct") {
         colorNumeric(
-          palette = c("#CCCCCC", "#006400"),  # gray80 to darkgreen
+          palette = c("#CCCCCC", "#006400"),
           domain = values,
           na.color = "transparent"
         )
       } else if (input$variable == "protestant_pct") {
         colorNumeric(
-          palette = c("#CCCCCC", "#00008B"),  # gray80 to darkblue
+          palette = c("#CCCCCC", "#00008B"),
           domain = values,
           na.color = "transparent"
         )
@@ -240,7 +243,7 @@ server <- function(input, output, session) {
       # Change map - diverging palette
       values <- data$change
       colorNumeric(
-        palette = c("#0000FF", "#FFFFFF", "#FF0000"),  # blue to white to red
+        palette = c("#0000FF", "#FFFFFF", "#FF0000"),
         domain = c(-max(abs(values), na.rm = TRUE), max(abs(values), na.rm = TRUE)),
         na.color = "transparent"
       )
@@ -261,11 +264,9 @@ server <- function(input, output, session) {
     if (input$map_type == "single") {
       map_column <- input$variable
       legend_title <- var_label
-      title_text <- paste0(input$year, ": ", var_label)
     } else {
       map_column <- "change"
       legend_title <- paste("Change in", var_label)
-      title_text <- paste0("Change ", input$year_from, " to ", input$year_to, ": ", var_label)
     }
     
     # Create popup text
@@ -339,14 +340,6 @@ server <- function(input, output, session) {
           )
       }
     }
-    
-    # Add title as control
-    map <- map %>%
-      addControl(
-        html = paste0("<div style='background: white; padding: 5px; border-radius: 5px;'><strong>", 
-                      title_text, "</strong></div>"),
-        position = "topleft"
-      )
     
     map
   })
