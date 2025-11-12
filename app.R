@@ -42,7 +42,7 @@ var_choices <- c(
 )
 
 ui <- fluidPage(
-  titlePanel("Census Data Explorer (All Years)"),
+  titlePanel("N.I. Census Grid-Square Data Explorer (1971-2021)"),
   
   sidebarLayout(
     sidebarPanel(
@@ -156,7 +156,7 @@ server <- function(input, output, session) {
     data <- selected_data()
     
     if (input$map_type == "single") {
-      # Single year map
+      # Single year map - keep ALL columns
       data <- data %>% filter(year == input$year)
       
       if (input$area != "all") {
@@ -216,7 +216,7 @@ server <- function(input, output, session) {
       if (input$variable == "cath_prot_balance_pct") {
         # Diverging palette centered at 50
         colorNumeric(
-          palette = c("#00008B", "#F0E68C", "#006400"),
+          palette = c("#FFB6C1", "#F0E68C", "#48D1CC"),
           domain = values,
           na.color = "transparent"
         )
@@ -269,45 +269,74 @@ server <- function(input, output, session) {
       legend_title <- paste("Change in", var_label)
     }
     
-    # Create popup text
-    if (input$map_type == "single") {
+    # Create popup with all variables
+    # Don't show popups for mixed grid type
+    if (input$grid_type == "mixed") {
+      popup_text <- NULL
+    } else if (input$map_type == "single") {
+      
       popup_text <- paste0(
-        "<strong>Grid Square:</strong> ", data$gridsquare, "<br>",
-        "<strong>", input$geo_type, ":</strong> ", data[[input$geo_type]], "<br>",
-        "<strong>", var_label, ":</strong> ", round(data[[input$variable]], 2)
+        "<div style='max-width: 350px;'>",
+        "<b>Grid Square: ", data$gridsquare, "</b><br>",
+        "<b>Year: ", input$year, "</b><br>"
       )
+      
+      # Add geographic identifiers
+      if("SDZ2021_nm" %in% names(data)) {
+        popup_text <- paste0(popup_text, "<b>SDZ 2021:</b> ", data$SDZ2021_nm, "<br>")
+      }
+      popup_text <- paste0(popup_text, "<b>", gsub("_nm$", "", input$geo_type), ":</b> ", 
+                           data[[input$geo_type]], "<br>")
+      
+      # Add persons and households if available
+      if("persons" %in% names(data)) {
+        popup_text <- paste0(popup_text, "<b>Persons:</b> ", data$persons, "<br>")
+      }
+      if("households" %in% names(data)) {
+        popup_text <- paste0(popup_text, "<b>Households:</b> ", data$households, "<br>")
+      }
+      
+      # Highlight selected variable
+      popup_text <- paste0(popup_text,
+                           "<hr style='margin:5px 0;'>",
+                           "<b style='color:blue; font-size:14px;'>", var_label, ": ", 
+                           round(data[[input$variable]], 2), "</b><br>",
+                           "<hr style='margin:5px 0;'>"
+      )
+      
+      # Add ALL variables from var_choices
+      for(var_col in var_choices) {
+        if(var_col %in% names(data) && var_col != input$variable) {
+          var_name <- names(var_choices)[var_choices == var_col]
+          popup_text <- paste0(popup_text, var_name, ": ", 
+                               round(data[[var_col]], 2), "<br>")
+        }
+      }
+      
+      popup_text <- paste0(popup_text, "</div>")
+      
     } else {
       popup_text <- paste0(
-        "<strong>Grid Square:</strong> ", data$gridsquare, "<br>",
-        "<strong>", input$geo_type, ":</strong> ", data[[input$geo_type]], "<br>",
-        "<strong>Change:</strong> ", round(data$change, 2)
+        "<div style='max-width: 300px;'>",
+        "<b>Grid Square: ", data$gridsquare, "</b><br>",
+        "<b>Years: ", input$year_from, " → ", input$year_to, "</b><br>",
+        "<b>", gsub("_nm$", "", input$geo_type), ":</b> ", data[[input$geo_type]], "<br>",
+        "<hr style='margin:5px 0;'>",
+        "<b style='color:blue; font-size:14px;'>Change in ", var_label, ": ", 
+        round(data$change, 2), "</b><br>",
+        "<b>From (", input$year_from, "):</b> ", 
+        round(data[[paste0(input$variable, "_from")]], 2), "<br>",
+        "<b>To (", input$year_to, "):</b> ", 
+        round(data[[paste0(input$variable, "_to")]], 2), "<br>",
+        "</div>"
       )
     }
     
     # Create base map
-    map <- leaflet(data) %>%
-      addProviderTiles(input$basemap) %>%
-      addPolygons(
-        fillColor = ~pal(data[[map_column]]),
-        fillOpacity = input$alpha,
-        color = "white",
-        weight = 0.5,
-        popup = popup_text,
-        highlightOptions = highlightOptions(
-          weight = 2,
-          color = "#666",
-          fillOpacity = min(input$alpha + 0.2, 1)
-        )
-      ) %>%
-      addLegend(
-        pal = pal,
-        values = ~data[[map_column]],
-        title = legend_title,
-        position = "topright",
-        opacity = 1
-      )
+    map <- leaflet() %>%
+      addProviderTiles(input$basemap)
     
-    # Add boundaries if requested
+    # Add boundaries FIRST if requested (so they're underneath)
     if (input$show_boundaries) {
       boundary_data <- switch(input$geo_type,
                               "const24_nm" = const24,
@@ -336,10 +365,37 @@ server <- function(input, output, session) {
             fillOpacity = 0,
             color = "black",
             weight = 2,
-            popup = NULL
+            popup = NULL,
+            group = "boundaries"
           )
       }
     }
+    
+    # Add data polygons ON TOP
+    map <- map %>%
+      addPolygons(
+        data = data,
+        fillColor = ~pal(data[[map_column]]),
+        fillOpacity = input$alpha,
+        color = "white",
+        weight = 0.5,
+        popup = popup_text,
+        label = ~as.character(gridsquare),
+        highlightOptions = highlightOptions(
+          weight = 2,
+          color = "#666",
+          fillOpacity = min(input$alpha + 0.2, 1),
+          bringToFront = TRUE
+        ),
+        group = "data"
+      ) %>%
+      addLegend(
+        pal = pal,
+        values = data[[map_column]],
+        title = legend_title,
+        position = "topright",
+        opacity = 1
+      )
     
     map
   })
