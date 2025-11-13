@@ -42,7 +42,7 @@ var_choices <- c(
 )
 
 ui <- fluidPage(
-  titlePanel("N.I. Census Grid-Square Data Explorer (1971-2021)"),
+  titlePanel("Census Data Explorer (All Years)"),
   
   sidebarLayout(
     sidebarPanel(
@@ -107,6 +107,22 @@ ui <- fluidPage(
       # Show boundaries
       checkboxInput("show_boundaries", "Show Geographic Boundaries", 
                     value = TRUE),
+      
+      # Highlight top values
+      checkboxInput("highlight_top", "Highlight Top Values", 
+                    value = FALSE),
+      
+      conditionalPanel(
+        condition = "input.highlight_top == true",
+        radioButtons("rank_direction", "Highlight:",
+                     choices = c("Highest Values" = "highest",
+                                 "Lowest Values" = "lowest"),
+                     selected = "highest"),
+        selectInput("top_n", "Number of Values:",
+                    choices = c("20" = 20, "40" = 40, "60" = 60, "100" = 100),
+                    selected = 20),
+        checkboxInput("show_rank", "Show Rank Labels", value = FALSE)
+      ),
       
       # Basemap selection
       selectInput("basemap", "Basemap:",
@@ -269,6 +285,24 @@ server <- function(input, output, session) {
       legend_title <- paste("Change in", var_label)
     }
     
+    # Add ranking if highlighting top values
+    if (input$highlight_top) {
+      # Rank based on direction
+      if (input$rank_direction == "highest") {
+        data <- data |>
+          mutate(
+            rank = rank(-!!sym(map_column), ties.method = "first"),
+            is_top = rank <= as.numeric(input$top_n)
+          )
+      } else {
+        data <- data |>
+          mutate(
+            rank = rank(!!sym(map_column), ties.method = "first"),
+            is_top = rank <= as.numeric(input$top_n)
+          )
+      }
+    }
+    
     # Create popup with all variables
     # Don't show popups for mixed grid type
     if (input$grid_type == "mixed") {
@@ -296,6 +330,13 @@ server <- function(input, output, session) {
         popup_text <- paste0(popup_text, "<b>Households:</b> ", data$households, "<br>")
       }
       
+      # Add rank if highlighting is enabled
+      if(input$highlight_top && "rank" %in% names(data)) {
+        rank_label <- ifelse(input$rank_direction == "highest", "Rank (Highest)", "Rank (Lowest)")
+        popup_text <- paste0(popup_text, "<b style='color:red;'>", rank_label, ":</b> ", 
+                             data$rank, "<br>")
+      }
+      
       # Highlight selected variable
       popup_text <- paste0(popup_text,
                            "<hr style='margin:5px 0;'>",
@@ -320,15 +361,25 @@ server <- function(input, output, session) {
         "<div style='max-width: 300px;'>",
         "<b>Grid Square: ", data$gridsquare, "</b><br>",
         "<b>Years: ", input$year_from, " → ", input$year_to, "</b><br>",
-        "<b>", gsub("_nm$", "", input$geo_type), ":</b> ", data[[input$geo_type]], "<br>",
-        "<hr style='margin:5px 0;'>",
-        "<b style='color:blue; font-size:14px;'>Change in ", var_label, ": ", 
-        round(data$change, 2), "</b><br>",
-        "<b>From (", input$year_from, "):</b> ", 
-        round(data[[paste0(input$variable, "_from")]], 2), "<br>",
-        "<b>To (", input$year_to, "):</b> ", 
-        round(data[[paste0(input$variable, "_to")]], 2), "<br>",
-        "</div>"
+        "<b>", gsub("_nm$", "", input$geo_type), ":</b> ", data[[input$geo_type]], "<br>"
+      )
+      
+      # Add rank if highlighting is enabled
+      if(input$highlight_top && "rank" %in% names(data)) {
+        rank_label <- ifelse(input$rank_direction == "highest", "Rank (Highest Change)", "Rank (Lowest Change)")
+        popup_text <- paste0(popup_text, "<b style='color:red;'>", rank_label, ":</b> ", 
+                             data$rank, "<br>")
+      }
+      
+      popup_text <- paste0(popup_text,
+                           "<hr style='margin:5px 0;'>",
+                           "<b style='color:blue; font-size:14px;'>Change in ", var_label, ": ", 
+                           round(data$change, 2), "</b><br>",
+                           "<b>From (", input$year_from, "):</b> ", 
+                           round(data[[paste0(input$variable, "_from")]], 2), "<br>",
+                           "<b>To (", input$year_to, "):</b> ", 
+                           round(data[[paste0(input$variable, "_to")]], 2), "<br>",
+                           "</div>"
       )
     }
     
@@ -372,23 +423,106 @@ server <- function(input, output, session) {
     }
     
     # Add data polygons ON TOP
-    map <- map %>%
-      addPolygons(
-        data = data,
-        fillColor = ~pal(data[[map_column]]),
-        fillOpacity = input$alpha,
-        color = "white",
-        weight = 0.5,
-        popup = popup_text,
-        label = ~as.character(gridsquare),
-        highlightOptions = highlightOptions(
+    if (input$highlight_top) {
+      # Add non-top values first (less prominent)
+      non_top <- data |> filter(!is_top)
+      if(nrow(non_top) > 0) {
+        non_top_popup <- if(input$grid_type != "mixed" && !is.null(popup_text)) {
+          popup_text[!data$is_top]
+        } else {
+          NULL
+        }
+        
+        map <- map %>%
+          addPolygons(
+            data = non_top,
+            fillColor = ~pal(non_top[[map_column]]),
+            fillOpacity = input$alpha * 0.3,  # More transparent
+            color = "white",
+            weight = 0.3,
+            popup = non_top_popup,
+            label = if(input$grid_type != "mixed") ~as.character(gridsquare) else NULL,
+            group = "data"
+          )
+      }
+      
+      # Add top values (prominent with thick border)
+      top_data <- data |> filter(is_top)
+      top_popup <- if(input$grid_type != "mixed" && !is.null(popup_text)) {
+        popup_text[data$is_top]
+      } else {
+        NULL
+      }
+      
+      map <- map %>%
+        addPolygons(
+          data = top_data,
+          fillColor = ~pal(top_data[[map_column]]),
+          fillOpacity = input$alpha,
+          color = "red",  # Red border for top values
           weight = 2,
-          color = "#666",
-          fillOpacity = min(input$alpha + 0.2, 1),
-          bringToFront = TRUE
-        ),
-        group = "data"
-      ) %>%
+          popup = top_popup,
+          label = ~as.character(gridsquare),
+          highlightOptions = highlightOptions(
+            weight = 3,
+            color = "#FF0000",
+            fillOpacity = min(input$alpha + 0.2, 1),
+            bringToFront = TRUE
+          ),
+          group = "data"
+        )
+      
+      # Add rank labels if requested
+      if (input$show_rank && nrow(top_data) > 0) {
+        centroids <- st_centroid(top_data)
+        map <- map %>%
+          addLabelOnlyMarkers(
+            data = centroids,
+            lng = ~st_coordinates(geometry)[,1],
+            lat = ~st_coordinates(geometry)[,2],
+            label = ~as.character(rank),
+            labelOptions = labelOptions(
+              noHide = TRUE,
+              direction = "center",
+              textOnly = TRUE,
+              style = list(
+                "color" = "red",
+                "font-weight" = "bold",
+                "font-size" = "12px",
+                "text-shadow" = "-1px -1px 0 white, 1px -1px 0 white, -1px 1px 0 white, 1px 1px 0 white"
+              )
+            )
+          )
+      }
+      
+    } else {
+      # Normal display without highlighting
+      normal_popup <- if(input$grid_type != "mixed" && !is.null(popup_text)) {
+        popup_text
+      } else {
+        NULL
+      }
+      
+      map <- map %>%
+        addPolygons(
+          data = data,
+          fillColor = ~pal(data[[map_column]]),
+          fillOpacity = input$alpha,
+          color = "white",
+          weight = 0.5,
+          popup = normal_popup,
+          label = if(input$grid_type != "mixed") ~as.character(gridsquare) else NULL,
+          highlightOptions = highlightOptions(
+            weight = 2,
+            color = "#666",
+            fillOpacity = min(input$alpha + 0.2, 1),
+            bringToFront = TRUE
+          ),
+          group = "data"
+        )
+    }
+    
+    map <- map %>%
       addLegend(
         pal = pal,
         values = data[[map_column]],
